@@ -9,7 +9,7 @@
 - Follow this guide: [How to Install VSCode on Ubuntu](https://phoenixnap.com/kb/how-to-install-visual-studio-code-on-ubuntu).
 
 ### 3. Download OSS CAD Suite
-- Download the binary: [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases/tag/2023-07-06).
+- Download the binary: [OSS CAD Suite.](https://github.com/YosysHQ/oss-cad-suite-build/releases/tag/2023-07-06)
 - Extract the compressed file.
 - Add the environment variable:
   ```bash
