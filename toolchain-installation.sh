@@ -15,4 +15,4 @@ cd riscv-gnu-toolchain-rv32i
 # mkdir build; cd build
 # ../configure --with-arch=rv32i --prefix=/opt/riscv32i
 ./configure --with-arch=rv32i --prefix=/opt/riscv32i
-make -j$(nproc)
+sudo make -j$(nproc)
