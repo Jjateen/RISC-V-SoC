@@ -25,7 +25,7 @@ initial begin
     repeat(5) @(posedge clk);
     reset_n<=1;
     @(posedge clk);
-    repeat(350) @(posedge clk);
+    repeat(20000) @(posedge clk);
     $finish(2);
 end
 

@@ -1,24 +1,36 @@
 #include <stdint.h>
 #include <stdlib.h>
+#include <gpio_regs.h>
 
-// #define IO_ADDR_START 0x40000000
-#define LEDS_START_ADDR 0x40000000
-#define LEDS_DATA_REG_OFFSET 0
-#define LEDS_DATA_REG *((volatile unsigned int *)(LEDS_START_ADDR + LEDS_DATA_REG_OFFSET))
+// assume 5 cycles per empty loop iteration
+// assume the clock is 12 MHz, 83.33 ns per clock period
+// for 0.5 sec delay we need 6 million cycles
+// this means we need 1.2 million iteration
 
-int main(void)
+void delay_long()
 {
 
-    LEDS_DATA_REG = 0b11011;
-    int i = 0;
+    for (uint64_t i = 0; i < 1000000; i++)
+        ;
+}
+
+void delay_short()
+{
+
+    for (uint64_t i = 0; i < 1; i++)
+        ;
+}
+
+int main()
+{
+
+    GCSR->GPIO_0 = 0;
 
     while (1)
     {
-        if (i == 5)
-            i = 0;
-        LEDS_DATA_REG = 1 << i;
-        i++;
+        GCSR->GPIO_0 = 0b10101;
+        delay_short();
+        GCSR->GPIO_0 = 0b01010;
+        delay_short();
     }
-
-    return 0;
 }
