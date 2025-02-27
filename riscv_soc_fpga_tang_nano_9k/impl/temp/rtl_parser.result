@@ -1,0 +1,78 @@
+[
+ {
+  "InstFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "top",
+  "ModuleFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/top.v",
+    "InstLine" : 27,
+    "InstName" : "clk_pll",
+    "ModuleFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_rPLL"
+   },
+   {
+    "InstFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/top.v",
+    "InstLine" : 45,
+    "InstName" : "D_mem_unit",
+    "ModuleFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/Memory.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "Memory"
+   },
+   {
+    "InstFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/top.v",
+    "InstLine" : 54,
+    "InstName" : "processor",
+    "ModuleFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/femtorv32_quark.v",
+    "ModuleLine" : 38,
+    "ModuleName" : "FemtoRV32"
+   },
+   {
+    "InstFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/top.v",
+    "InstLine" : 66,
+    "InstName" : "gpio_unit",
+    "ModuleFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/gpio_ip.v",
+    "ModuleLine" : 3,
+    "ModuleName" : "gpio_ip"
+   },
+   {
+    "InstFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/top.v",
+    "InstLine" : 85,
+    "InstName" : "uart_unit",
+    "ModuleFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/uart_ip.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "uart_ip",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/uart_ip.v",
+      "InstLine" : 38,
+      "InstName" : "uart_regs_interface_u0",
+      "ModuleFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/regs_uart.v",
+      "ModuleLine" : 3,
+      "ModuleName" : "regs_uart"
+     },
+     {
+      "InstFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/uart_ip.v",
+      "InstLine" : 59,
+      "InstName" : "uart_transmitter_u1",
+      "ModuleFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/uart_tx.v",
+      "ModuleLine" : 10,
+      "ModuleName" : "uart_tx"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/top.v",
+    "InstLine" : 106,
+    "InstName" : "dv_sel",
+    "ModuleFile" : "C:/Users/jjate/OneDrive/Desktop/riscv_soc/riscv_soc/src/device_select.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "device_select"
+   }
+  ]
+ }
+]

@@ -23,7 +23,7 @@ $(C_SRC_DIR)/firmware.elf: $(C_SRC_DIR)/main.o $(ASM_SRC_DIR)/start.o sections.l
 	$(GCC) -Og -mabi=ilp32 -march=rv32i -ffreestanding -nostdlib -o $@ -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,$(RESULT_DIR)/firmware.map,--strip-debug $(ASM_SRC_DIR)/start.o $(C_SRC_DIR)/main.o -lgcc
 
 $(C_SRC_DIR)/main.o: $(ASM_SRC_DIR)/main.c
-	$(GCC) -c -Iinc/ -mabi=ilp32 -march=rv32i -Og --std=c99 -ffreestanding -nostdlib -o $@ $<
+	$(GCC) -c -Iinc/ -mabi=ilp32 -march=rv32i -O0 --std=c99 -ffreestanding -nostdlib -o $@ $<
 
 $(ASM_SRC_DIR)/start.o: $(ASM_SRC_DIR)/start.S
 	$(GCC) -c -mabi=ilp32 -march=rv32i -o $@ $<

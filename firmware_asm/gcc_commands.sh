@@ -30,3 +30,4 @@ iverilog src/*.v tb_processor.v -o program
 
 # Step 9: View the waveform using GTKWave
 gtkwave tb_processor.vcd
+

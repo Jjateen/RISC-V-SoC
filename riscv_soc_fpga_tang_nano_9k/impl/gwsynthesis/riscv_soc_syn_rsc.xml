@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="top" Lut="44" T_Register="241(0)" T_Alu="158(0)" T_Lut="819(44)" T_Bsram="6(0)">
+ <SubModule name="clk_pll"/>
+ <SubModule name="D_mem_unit" Lut="4" Bsram="4" T_Lut="4(4)" T_Bsram="4(4)"/>
+ <SubModule name="processor" Register="134" Alu="158" Lut="689" Bsram="2" T_Register="134(134)" T_Alu="158(158)" T_Lut="689(689)" T_Bsram="2(2)"/>
+ <SubModule name="gpio_unit" Register="64" Lut="12" T_Register="64(64)" T_Lut="12(12)"/>
+ <SubModule name="uart_unit" Register="1" Lut="1" T_Register="43(1)" T_Lut="70(1)">
+  <SubModule name="uart_regs_interface_u0" Register="21" Lut="36" T_Register="21(21)" T_Lut="36(36)"/>
+  <SubModule name="uart_transmitter_u1" Register="21" Lut="33" T_Register="21(21)" T_Lut="33(33)"/>
+ </SubModule>
+</Module>

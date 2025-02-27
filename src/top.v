@@ -1,10 +1,11 @@
 module top (
     input clk,
     input reset_n,
-    output  [4:0] leds
+    output  [4:0] leds,
+    output uart_tx
 );
 
-   parameter MEM_FILE = "/home/jjateen/Desktop/adv_SoC/firmware/firmware.hex";
+   parameter MEM_FILE = "/firmware/firmware.hex";
    
    wire mem_rstrb;
    wire mem_instr;
@@ -23,9 +24,10 @@ module top (
 
    always @(*) begin
         processor_rdata = 32'h0;
-        case ({s1_sel_gpio, s0_sel_mem})
-            2'b01: processor_rdata = mem_rdata;
-            2'b10: processor_rdata = rdata_gpio;
+        case ({s2_sel_uart, s1_sel_gpio, s0_sel_mem})
+            3'b001: processor_rdata = mem_rdata;
+            3'b010: processor_rdata = rdata_gpio;
+            3'b100: processor_rdata = rdata_uart;
         endcase
    end
 
@@ -62,7 +64,7 @@ module top (
     .csr_gpio_0_data_out(leds),
 
     // Local Bus
-    .waddr({4'h0, mem_addr[27:0]}), // 0x40000000 --> 0x00000000
+    .waddr({4'h0, mem_addr[27:0]}),
     .wdata(mem_wdata),
     .wen(s1_sel_gpio & (|mem_wstrb)),
     .wstrb(mem_wstrb),
@@ -73,11 +75,32 @@ module top (
     .rvalid()
     );
 
+   uart_ip uart_unit(
+
+    // System
+    .clk(clk),
+    .rst(!reset_n),
+    // Local Bus
+    .waddr({4'h0, mem_addr[27:0]}),
+    .wdata(mem_wdata),
+    .wen(s2_sel_uart & (|mem_wstrb)),
+    .wstrb(mem_wstrb),
+    .wready(),
+    .raddr({4'h0, mem_addr[27:0]}),
+    .ren(s2_sel_uart & mem_rstrb),
+    .rdata(rdata_uart),
+    .rvalid(),
+    // uart tx
+    .o_uart_tx(uart_tx)
+
+
+    );
 
   device_select dv_sel(
     .addr(mem_addr),
     .s0_sel_mem(s0_sel_mem),
-    .s1_sel_gpio(s1_sel_gpio)
+    .s1_sel_gpio(s1_sel_gpio),
+    .s2_sel_uart(s2_sel_uart)
     );
 
 // always @(posedge clk or negedge reset_n) begin
