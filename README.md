@@ -50,11 +50,16 @@ Below is the top-level schematic of the SoC implemented on the FPGA:
 - Install [OSS-CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build)
 - Install [Gowin IDE](https://www.gowinsemi.com/) for Tang Nano 9K
 - Install [Make](https://www.gnu.org/software/make/) for firmware compilation
+- Install the RISC-V toolchain using:
+  ```sh
+  ./toolchain-installation.sh
+  ```
+- Refer to [IDE Installation Guide](ide-installation.md) for setting up TerosHDL and OSS-CAD Suite.
 
 ### Building the Firmware
 ```sh
 cd firmware
-make clean && make
+make
 ```
 This will generate `firmware.hex`, which can be loaded onto the SoC.
 
